@@ -14,9 +14,8 @@ import ecart from "../images/ecart.png";
 import parallax from "../images/parallex.png";
 import avatar from "../images/avatar.webp";
 import Link from "next/link";
+import AnimatedElement from "@/components/AnimatedElement";
 import { motion } from "framer-motion";
-import { LocoScrollProvider } from "@/components/LocoScrollProvider";
-
 
 export default function Home() {
 
@@ -133,48 +132,58 @@ export default function Home() {
 
 
   return (
-    <LocoScrollProvider>
-      <main className="min-h-screen bg-background" style={{ fontFamily: '"Share Tech Mono", monospace' }}>
-        {/* Hero Section */}
-        <section className="relative h-screen flex items-center justify-center bg-gradient-to-tr from-sky-200 via-slate-900 to-black overflow-hidden">
-          {/* Background Animation */}
-          <div className="absolute inset-0 bg-primary/10" />
+    <main className="min-h-screen bg-background" style={{ fontFamily: '"Share Tech Mono", monospace' }}>
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center bg-gradient-to-tr from-sky-200 via-slate-900 to-black overflow-hidden">
+          {/* Bubble Background */}
+          <div className="bubble-container">
+            {[...Array(10)].map((_, i) => (
+              <span key={i} className={`bubble bubble-${i + 1}`} />
+            ))}
+          </div>
+
+          {/* Content */}
           <div className="container px-4 mx-auto text-center relative z-10">
-            {/* Avatar Section */}
-            <div className="mb-8">
-            <Avatar className="w-48 h-48 mx-auto mb-8 ring-4 ring-blue-500/30 shadow-[0_0_20px_#3b82f6] overflow-hidden">
-              <Image
-                src={avatar}
-                alt="Profile"
-                width={192}
-                height={192}
-                className="w-full h-full object-cover rounded-full"
-              />
-            </Avatar>
+            <AnimatedElement animation="fade-in">
+              <motion.div
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              >
+                <Avatar className="w-48 h-48 mx-auto mb-8 ring-4 ring-blue-500/30 shadow-[0_0_20px_#3b82f6] overflow-hidden">
+                  <Image
+                    src={avatar}
+                    alt="Profile"
+                    width={192}
+                    height={192}
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </Avatar>
+              </motion.div>
+            </AnimatedElement>
 
-            </div>
+            <AnimatedElement animation="slide-left">
+              <motion.h1
+                className="text-4xl md:text-6xl font-bold mb-6 text-white-400 shadow-glow"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 1 }}
+              >
+                Shamil Rahman PK
+              </motion.h1>
+            </AnimatedElement>
 
-            {/* Name with Typing Effect */}
-            <h1
-              data-scroll
-              data-scroll-direction="horizontal"
-              data-scroll-speed="2"
-              className="text-4xl md:text-6xl font-bold mb-6 text-white-400 shadow-glow"
-            >
-              Shamil Rahman PK
-            </h1>
+            <AnimatedElement animation="slide-left">
+              <motion.p
+                className="text-xl md:text-2xl text-muted-foreground mb-8 typing-effect"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 1.5 }}
+              >
+                Full Stack Developer & Web Developer
+              </motion.p>
+            </AnimatedElement>
 
-            {/* Description with Typing Effect */}
-            <p
-              className="text-xl md:text-2xl text-muted-foreground mb-8 typing-effect"
-              data-scroll
-              data-scroll-direction="horizontal"
-              data-scroll-speed="-1"
-            >
-              Full Stack Developer & Web Developer
-            </p>
-
-            {/* Social Links */}
             <div className="flex justify-center gap-4">
               <Link href="https://github.com/ShamilRahmanPK" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="hover:bg-primary hover:text-primary-foreground">
@@ -193,7 +202,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-        </section>  
+        </section>
         {/* About Section */}
         <section className="py-20 bg-background">
           <div className="container px-4 mx-auto">
@@ -202,8 +211,6 @@ export default function Home() {
             <p
               className="text-lg text-center text-muted-foreground leading-relaxed"
               style={{ fontFamily: '"Share Tech Mono", monospace' }}
-              data-scroll
-              data-scroll-speed="1"
             >
               I am a full-stack developer with hands-on experience in the MERN and MEAN stacks, as well as Flutter. I specialize in building scalable and performant web and mobile applications, focusing on delivering clean, responsive user interfaces. When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, and sharing my knowledge through blog posts.
             </p>
@@ -216,8 +223,13 @@ export default function Home() {
           <div className="container px-4 mx-auto">
             <h2 className="text-3xl font-bold mb-12 text-center">Skills & Expertise</h2>
             <div className="flex flex-wrap items-center justify-center gap-6 max-w-4xl mx-auto">
-            {skills?.filter(Boolean).map((skill, index) => (
-                <div key={skill?.name || index} className="flex flex-col items-center group">
+              {skills?.filter(Boolean).map((skill, index) => (
+                <motion.div
+                  key={skill?.name || index}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="flex flex-col items-center group"
+                >
                   <div className="w-16 h-16 p-2 rounded-lg bg-background/50 flex items-center justify-center group-hover:bg-primary/10 transition-colors shadow-[0_0_10px_#06b6d4] group-hover:animate-bounce">
                     <img
                       src={skill?.image}
@@ -228,7 +240,7 @@ export default function Home() {
                   <span className="text-sm font-medium mt-2 text-muted-foreground group-hover:text-foreground transition-colors">
                     {skill?.name}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -288,9 +300,14 @@ export default function Home() {
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                     <p className="text-muted-foreground mb-4">{project.description}</p>
-                    <Button variant="outline" className="w-full hover:bg-primary hover:text-primary-foreground">
-                      View Project <ExternalLink className="ml-2 h-4 w-4" />
-                    </Button>
+                    <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                      <Button
+                        variant="outline"
+                        className="w-full hover:bg-primary hover:text-primary-foreground"
+                      >
+                        View Project <ExternalLink className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
                   </div>
                 </Card>
               ))}
@@ -348,6 +365,5 @@ export default function Home() {
           </div>
         </footer>
       </main>
-    </LocoScrollProvider>
   );
 }
