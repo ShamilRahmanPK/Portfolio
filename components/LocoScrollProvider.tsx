@@ -5,15 +5,13 @@ import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 
 export const LocoScrollProvider = ({ children }: { children: React.ReactNode }) => {
-  const scrollRef = useRef(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const scrollEl = document.querySelector("[data-scroll-container]");
-
-    if (!scrollEl) return;
+    if (!scrollRef.current) return;
 
     const scroll = new LocomotiveScroll({
-      el: scrollEl,
+      el: scrollRef.current,
       smooth: true,
       lerp: 0.07,
       multiplier: 1,
@@ -21,7 +19,7 @@ export const LocoScrollProvider = ({ children }: { children: React.ReactNode }) 
     });
 
     return () => {
-      if (scroll) scroll.destroy();
+      scroll.destroy();
     };
   }, []);
 

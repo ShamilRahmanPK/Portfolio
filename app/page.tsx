@@ -216,17 +216,17 @@ export default function Home() {
           <div className="container px-4 mx-auto">
             <h2 className="text-3xl font-bold mb-12 text-center">Skills & Expertise</h2>
             <div className="flex flex-wrap items-center justify-center gap-6 max-w-4xl mx-auto">
-              {skills?.map((skill) => (
-                <div key={skill.name} className="flex flex-col items-center group">
+            {skills?.filter(Boolean).map((skill, index) => (
+                <div key={skill?.name || index} className="flex flex-col items-center group">
                   <div className="w-16 h-16 p-2 rounded-lg bg-background/50 flex items-center justify-center group-hover:bg-primary/10 transition-colors shadow-[0_0_10px_#06b6d4] group-hover:animate-bounce">
                     <img
-                      src={skill.image}
-                      alt={skill.name}
+                      src={skill?.image}
+                      alt={skill?.name || "Skill icon"}
                       className="w-12 h-12 group-hover:scale-110 transition-transform"
                     />
                   </div>
                   <span className="text-sm font-medium mt-2 text-muted-foreground group-hover:text-foreground transition-colors">
-                    {skill.name}
+                    {skill?.name}
                   </span>
                 </div>
               ))}
