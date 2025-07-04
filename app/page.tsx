@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import socail from "../images/socail.png";
 import player from "../images/player.png";
 import projectfair from "../images/projectfair.png";
+import dashoard from "../images/dashoard.png";
 import chat from "../images/chat.png";
 import ecart from "../images/ecart.png";
 import parallax from "../images/parallex.png";
@@ -38,6 +39,12 @@ export default function Home() {
       description: "One Stop Destination for all Software Development Projects.",
       image: projectfair,
       link: "https://project-fair-mocha.vercel.app/"
+    },
+    {
+      title: "Dashboard",
+      description: "Dashboard application with real-time data visualization and analytics",
+      image: dashoard,
+      link: "https://dashboard-psi-ivory.vercel.app/"
     },
     {
       title: "Chat App",
