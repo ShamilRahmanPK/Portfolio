@@ -13,6 +13,7 @@ import dashoard from "../images/dashoard.png";
 import chat from "../images/chat.png";
 import ecart from "../images/ecart.png";
 import parallax from "../images/parallex.png";
+import doc_dash from "../images/doc-dashboard.png"
 import avatar from "../images/avatar.webp";
 import Link from "next/link";
 import AnimatedElement from "@/components/AnimatedElement";
@@ -41,10 +42,10 @@ export default function Home() {
       link: "https://project-fair-mocha.vercel.app/"
     },
     {
-      title: "Dashboard",
-      description: "Dashboard application with real-time data visualization and analytics",
-      image: dashoard,
-      link: "https://dashboard-psi-ivory.vercel.app/"
+      title: "Doc-Dashboard",
+      description: "Doctor dashboard with Real-time medicine name suggestions to reduce errors and pdf generation",
+      image: doc_dash,
+      link: "https://doc-dashboard-gamma.vercel.app/"
     },
     {
       title: "Chat App",
@@ -59,10 +60,16 @@ export default function Home() {
       link: "https://e-cart-kappa-ivory.vercel.app/"
     },
     {
+      title: "Dashboard",
+      description: "Dashboard application with real-time data visualization and analytics",
+      image: dashoard,
+      link: "https://dashboard-psi-ivory.vercel.app/"
+    },
+    {
       title: "Parallax Website",
       description: "Simple Parallax website with smooth scrolling and animations",
       image: parallax,
-      link: "https://parallax-website-22vy-93k2755iz-shamil-rahman-pks-projects.vercel.app/"
+      link: "https://parallax-website-22vy.vercel.app/"
     }
   ];
 
