@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink ,FileText } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -194,29 +194,30 @@ export default function Home() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 1.5 }}
               >
-                Full Stack Developer & Web Developer
+                Full Stack Developer | Flutter Developer
               </motion.p>
             </AnimatedElement>
 
             <div className="flex justify-center gap-4">
-              <Link href="https://github.com/ShamilRahmanPK" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon" className="hover:bg-primary hover:text-primary-foreground">
-                  <Github className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="https://www.linkedin.com/in/shamil-rahman-p-k-8b6a6131a/" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon" className="hover:bg-primary hover:text-primary-foreground">
-                  <Linkedin className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="mailto:shamilrahman7994@gmail.com" passHref>
-                <Button variant="outline" size="icon" className="hover:bg-primary hover:text-primary-foreground">
-                  <Mail className="h-5 w-5" />
-                </Button>
-              </Link>
-            </div>
+            <Link href="https://github.com/ShamilRahmanPK" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="icon" className="hover:bg-primary hover:text-primary-foreground">
+                <Github className="h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="https://www.linkedin.com/in/shamil-rahman-p-k-8b6a6131a/" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="icon" className="hover:bg-primary hover:text-primary-foreground">
+                <Linkedin className="h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="mailto:shamilrahman7994@gmail.com" passHref>
+              <Button variant="outline" size="icon" className="hover:bg-primary hover:text-primary-foreground">
+                <Mail className="h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
           </div>
         </section>
+
         {/* About Section */}
         <section className="py-20 bg-background">
           <div className="container px-4 mx-auto">
@@ -231,7 +232,27 @@ export default function Home() {
             </div>
           </div>
         </section>
-  
+        {/* Hire Me Section */}
+        <section className="py-10 bg-background">
+          <div className="container px-4 mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">Looking for a Developer?</h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              I'm actively open to work! Feel free to download my resume and let's collaborate on something amazing.
+            </p>
+            <a
+              href="/Shamil_rahman.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
+                <FileText className="mr-2 h-5 w-5" />
+                Hire Me / Download Resume
+              </Button>
+            </a>
+          </div>
+        </section>
+
         {/* Skills Section */}
         <section className="py-20 bg-secondary/50">
           <div className="container px-4 mx-auto">
@@ -300,7 +321,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
-                <Card key={index} className="overflow-hidden group shadow-[0_0_15px_#60a5fa]" data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
+                <Card key={index} className="overflow-hidden group shadow-[0_0_5px_#60a5fa]" data-scroll data-scroll-speed="1" data-scroll-direction="vertical">
                   <div className="relative">
                   <Image
                         src={project.image}
