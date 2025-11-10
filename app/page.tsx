@@ -14,6 +14,7 @@ import chat from "../images/chat.png";
 import ecart from "../images/ecart.png";
 import parallax from "../images/parallex.png";
 import doc_dash from "../images/doc-dashboard.png"
+import hopewell from "../images/hopewell.png";
 import avatar from "../images/avatar.webp";
 import Link from "next/link";
 import AnimatedElement from "@/components/AnimatedElement";
@@ -23,6 +24,12 @@ export default function Home() {
 
 
   const projects = [
+    {
+      title: "Hopewell Hospitals",
+      description: "A Full-stack Hospital doctor appoinment web application built with MERN stack",
+      image: hopewell,
+      link: "https://hopewellhospitals.in/"
+    },
     {
       title: "Photosam",
       description: "A Full-stack Social Media web application built with MERN stack",
@@ -283,6 +290,20 @@ export default function Home() {
         {/* Education and Courses Section */}
         <section className="py-20 bg-background">
           <div className="container px-4 mx-auto">
+            {/* experiance Section */}
+            <div className="mb-12">
+              <h2 className="text-3xl font-bold mb-12 text-center">Experience</h2>
+              <div className="max-w-3xl mx-auto" data-scroll data-scroll-speed="1" data-scroll-direction="horizontal">
+                <div className="mb-6">
+                  <h3 className="text-xl font-semibold text-primary mb-2">Full Stack Developer Trainee</h3>
+                  <p className="text-lg text-muted-foreground">Luminar Technolab, 2024-2025</p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-primary mb-2">Flutter Developer</h3>
+                  <p className="text-lg text-muted-foreground">Ralfiz Technologies, 2023-2024</p>
+                </div>
+              </div>
+            </div>
             {/* Education Section */}
             <div className="mb-12">
               <h2 className="text-3xl font-bold mb-12 text-center">Education</h2>
